@@ -1,8 +1,12 @@
 import { useRouter } from 'next/router'
+import { Footer } from "../home";
+
 
 export default function GamePage() {
   const { query } = useRouter()
   const { gameName } = query
+
+  console.log(query)
 
   return (
     <div className="p-4">
