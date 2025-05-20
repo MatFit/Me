@@ -1,9 +1,8 @@
-// Entry point for application
 import Link from 'next/link'
 
 const games = [
-  { title: 'Jump Run', slug: 'jump-run' },
-  { title: 'Puzzle Box', slug: 'puzzle-box' },
+  { title: 'Jump Run', gameName: 'jump-run' },
+  { title: 'Puzzle Box', gameName: 'puzzle-box' },
 ]
 
 export default function Home() {
@@ -11,8 +10,8 @@ export default function Home() {
     <main className="p-4 grid gap-4 md:grid-cols-2">
       {games.map(game => (
         <Link
-          key={game.slug}
-          href={`/games/${game.slug}`}
+          key={game.gameName}
+          href={`/games/${game.gameName}`}
           className="block border p-4 rounded-lg shadow hover:bg-gray-100"
         >
           <h2 className="text-xl font-bold">{game.title}</h2>
