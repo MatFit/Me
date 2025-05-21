@@ -136,7 +136,7 @@ export function MenuLayoutWithChildren({ children }: { children: React.ReactNode
           {/* Project Directory */}        
           <li>
             <Link
-              href="#projects"
+              href="/project"
               className="flex items-center gap-3 hover:bg-stone-800 p-2 rounded"
               onClick={() => setOpen(false)}
             >
