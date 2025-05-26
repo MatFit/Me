@@ -37,3 +37,4 @@ tsconfig.json
 postcss.config.js
 tailwind.config.js
 .env
+data/posts.json
