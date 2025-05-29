@@ -1,6 +1,6 @@
 import { Github, Linkedin, Instagram } from "lucide-react";
 import { useState } from "react";
-import { Menu, X, Home, Folder } from "lucide-react";
+import { Menu, X, Home, Folder, PenLine } from "lucide-react";
 import { User, ChevronDown, ChevronUp } from "lucide-react";
 import { games } from "../lib/games";
 import Link from "next/link";
@@ -66,6 +66,16 @@ export function MenuLayout({ children }: { children: React.ReactNode }) {
               onClick={() => setOpen(false)}
             >
               <Folder className="w-5 h-5" /> Projects
+            </Link>
+          </li>
+
+          <li>
+            <Link
+              href="/write"
+              className="flex items-center gap-3 hover:bg-stone-800 p-2 rounded"
+              onClick={() => setOpen(false)}
+            >
+              <PenLine className="w-5 h-5" /> Write
             </Link>
           </li>
         </ul>

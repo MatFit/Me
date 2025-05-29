@@ -1,37 +1,14 @@
 [
   {
-    "title": "Test Post",
-    "addToUrl": "test-post",
+    "title": "Stuff I hate",
     "date": "2025-05-25",
-    "subtitle": "test",
-    "content": "Yummers"
+    "subtitle": "Quick desc of things I hate",
+    "content": "Lets write about stuff I hate: myself."
   },
   {
-    "title": "Test Post",
-    "addToUrl": "test-post",
-    "date": "2025-05-25",
-    "subtitle": "test",
-    "content": "Yummers"
-  },
-  {
-    "title": "Test Post",
-    "addToUrl": "test-post",
-    "date": "2025-05-25",
-    "subtitle": "test",
-    "content": "Yummers"
-  },
-  {
-    "title": "Test Post",
-    "addToUrl": "test-post",
-    "date": "2025-05-25",
-    "subtitle": "test",
-    "content": "Yummers"
-  },
-  {
-    "title": "Test Post",
-    "addToUrl": "test-post",
-    "date": "2025-05-25",
-    "subtitle": "test",
-    "content": "Yummers"
+    "title": "asdasd",
+    "subtitle": "wedfwfef",
+    "content": "asdasd",
+    "date": "2025-05-29"
   }
 ]
