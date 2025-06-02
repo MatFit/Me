@@ -54,8 +54,6 @@ export default function WriteBlog() {
           console.log("Failure!!");
         }
 
-
-
       } catch(err) {
         console.error(err);
         alert("Error submitting post");

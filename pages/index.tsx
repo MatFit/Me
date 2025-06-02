@@ -1,6 +1,7 @@
 import { MenuLayout } from "./home";
 import { Footer } from "./home";
 import { useState } from "react";
+import { indexModel as s } from './indexModel.styles';
 import Image from 'next/image';
 import birdPic from '../assets/bird_with_balls.jpg';
 import posts from '../data/test_posts.json';
@@ -24,10 +25,12 @@ export default function Home() {
 
           {/* stuff*/}
           <section className="mt-16 w-full flex justify-center animate-fade-in">
-            <div className="bg-stone-600 p-6 rounded-lg w-full max-w-5xl text-white font-mono space-y-6">
-              <h2 className="text-4xl font-bold font-mono text-center">Stuff</h2>
+             <div className={s.card}>   
+              <h2 className={s.header_2}>Random talks</h2>
+
+                {/* Fetching posts */}
                 {posts.map((post, i) => (
-                  <div key={i} onClick = {() => setSelectedPost(post)} className="border-l-4 border-white pl-5 bg-stone-700 p-6 rounded-lg w-full max-w-5xl text-white hover:bg-stone-600 transition">
+                  <div key={i} onClick = {() => setSelectedPost(post)} className={s.post_card}>
                     <h3 className="text-2xl font-semibold">{post.title}</h3>
                     <p className="text-sm text-gray-200"> Date: {post.date}</p>
                     <p className="mt-2"> - {post.subtitle} -</p>
@@ -38,22 +41,29 @@ export default function Home() {
 
             {/* If Post is clicked */}
             {selectedPost && (
-            <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
-              <div className="bg-white text-black p-6 rounded-lg w-full max-w-md">
-                <h3 className="text-xl font-bold">{selectedPost.title}</h3>
-                <p className="text-sm text-gray-700 mb-4">Date: {selectedPost.date}</p>
-                <p>{selectedPost.content}</p>
+              <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm">
+                <div className={s.post}>
+                  <h3 className="text-center text-2xl font-bold text-stone-900">{selectedPost.title}</h3>
+                  <p className="text-center text-sm text-stone-700">Date: {selectedPost.date}</p>
 
+                  {/* Posts in article format */}
+                  <article className="w-full h-96 max-h-[70vh] overflow-y-auto overflow-x-hidden p-6 bg-stone-100 rounded-lg shadow-inner">
+                    <p className="whitespace-pre-wrap break-words leading-relaxed text-stone-800">
+                      {selectedPost.content}
+                    </p>
+                  </article>
 
-                <button onClick={() => setSelectedPost(null)} className="mt-4 bg-stone-700 text-white px-4 py-2 rounded hover:bg-stone-800">
-                  Close
-                </button>
+                  {/* Handle close post by toggling off setSelectedPost */}
+                  <div className="flex justify-end">
+                    <button onClick={() => setSelectedPost(null)} className="bg-stone-700 hover:bg-stone-800 transition text-white px-5 py-2 rounded-lg font-semibold">
+                      Close
+                    </button>
+                  </div>
+                </div>
               </div>
-            </div>
-          )}
+            )}
+
           </section>
-
-
 
       <Footer></Footer>  
       </MenuLayout>
