@@ -5,7 +5,7 @@ export default class MancalaScene extends Phaser.Scene {
     super("MancalaScene");
   }
   preload(){
-    this.load.image('test','assets/bird_with_balls.jpg');
+    this.load.image('test','/games/mancala/game_assets/bird_with_balls.jpg');
   }
   create(){
     const { centerX, centerY } = this.cameras.main;

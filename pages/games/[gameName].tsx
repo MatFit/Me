@@ -30,8 +30,6 @@ export default function GamePage() {
   // Fetch title
   const title = games.find(g => g.gameName === gameName)?.title ?? gameName;
 
-  
-
 
 
   return (
