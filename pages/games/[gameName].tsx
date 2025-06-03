@@ -2,20 +2,22 @@
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
-import { MenuLayout } from "../home"
+import { Footer, MenuLayout } from "../home"
 import { games } from "../../lib/games";
 
-// client‑only Phaser wrapper
+// Phaser wrapper to apply config to Phaser game object
 const PhaserGame = dynamic(
   () => import("./component/PhaserGame"),
   { ssr: false }
 );
 
 export default function GamePage() {
-  const { gameName } = useRouter().query as { gameName?: string };
-  const [config, setConfig] =
-  useState<Phaser.Types.Core.GameConfig | null>(null);
+  
+  const { gameName } = useRouter().query as { gameName?: string }; // Fetch query
+  const [config, setConfig] = useState<Phaser.Types.Core.GameConfig | null>(null); // Config tied to phaser object
 
+
+  // Fetch gameConfigs
   useEffect(() => {
     if (!gameName) return;
 
@@ -25,7 +27,12 @@ export default function GamePage() {
     })();
   }, [gameName]);
 
+  // Fetch title
   const title = games.find(g => g.gameName === gameName)?.title ?? gameName;
+
+  
+
+
 
   return (
     <MenuLayout>
@@ -34,6 +41,7 @@ export default function GamePage() {
           {title}
         </h1>
 
+        {/* Render */}
         {config ? (
           <div className="flex justify-center">
             <PhaserGame config={config} />
@@ -42,6 +50,7 @@ export default function GamePage() {
           <p className="text-center text-stone-400">Loading…</p>
         )}
       </main>
+      <Footer></Footer>
     </MenuLayout>
   );
 }

@@ -1,5 +1,3 @@
-// components/PhaserGame.tsx
-"use client";
 import { useEffect, useRef } from "react";
 import Phaser from "phaser";
 
