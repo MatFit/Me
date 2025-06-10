@@ -1,6 +1,7 @@
 
 import Phaser from "phaser";
 import Button from './elements'
+import { games } from "@/lib/games";
 
 const PITS_PER_PLAYER = 6;
 const STONES_PER_PIT = 4;
@@ -22,6 +23,9 @@ export default class MancalaScene extends Phaser.Scene {
   player_1_mancala_index : number = PITS_PER_PLAYER;
   player_2_mancala_index : number = this.board.length - 1;
 
+  // Misc
+  gameStart : boolean = false;
+
   constructor() {
     super("mancala");
   }
@@ -33,15 +37,41 @@ export default class MancalaScene extends Phaser.Scene {
   }
 
   startGame() {
-    
+    if (!this.gameStart) {
+      console.log("Game start");
+      this.gameStart = true;
+    }
   }
 
   designStartUI() {
-    const center_X = this.cameras.main.width / 2 - 100;
+    const center_X = this.cameras.main.width / 2 - 80;
     const center_Y = this.cameras.main.height / 2 - 100;
 
+    this.styleBackground();
+
     // Main button
-    new Button(this, center_X, center_Y, 'MANCALA', () => this.startGame());
+    const mainButton = new Button(this, center_X, center_Y, 'MANCALA', () => this.startGame()).stylize({
+      fontSize: '36px',
+      color: '#bb9059',
+      padding: { x : 10, y : 10}
+    }, '#bb9059').activate();
+
+
+    
+    // Sub header
+    this.add.text(center_X + 20, center_Y + 50, "Click 'Mancala' to start!", {
+      fontSize: '36',
+      color: '#bb9059'
+    });
+  }
+
+  styleBackground() {
+    this.cameras.main.setBackgroundColor("cfb997");
+    const { width, height } = this.scale;          
+    const borderThickness = 6;                    
+    const borderColor = 0xffffff;                  
+
+    this.add.graphics().lineStyle(borderThickness, borderColor, 1).strokeRect(0, 0, width, height);
   }
 
 
