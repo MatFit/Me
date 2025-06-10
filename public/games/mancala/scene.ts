@@ -1,4 +1,6 @@
-import Phaser, { NONE } from "phaser";
+
+import Phaser from "phaser";
+import Button from './elements'
 
 const PITS_PER_PLAYER = 6;
 const STONES_PER_PIT = 4;
@@ -27,8 +29,21 @@ export default class MancalaScene extends Phaser.Scene {
     this.load.image('test','/games/mancala/game_assets/bird_with_balls.jpg');
   }
   create(){
+    this.designStartUI();
+  }
+
+  startGame() {
     
   }
+
+  designStartUI() {
+    const center_X = this.cameras.main.width / 2 - 100;
+    const center_Y = this.cameras.main.height / 2 - 100;
+
+    // Main button
+    new Button(this, center_X, center_Y, 'MANCALA', () => this.startGame());
+  }
+
 
   validMove(player_choice : number) {
     if (this.current_player == 1) {
@@ -53,7 +68,7 @@ export default class MancalaScene extends Phaser.Scene {
   }
 
   executeTurn(pit : number) {
-    let index = NONE;
+    let index = -1;
     if (this.current_player == 1) {
       index = pit - 1;
     }
@@ -61,6 +76,21 @@ export default class MancalaScene extends Phaser.Scene {
       index = this.player_2_pit[0] + pit - 1;
     }
 
+    let stones = this.board[index];
+    this.board[index] = 0;
+    
+    while (index != 0) {
+      index = (index + 1) % this.board.length; // Remain within bounds of board
+
+      // Opposing mancala doesn't increment
+      if ((this.current_player == 1 && index == this.player_2_mancala_index) || (this.current_player == 2 && index == this.player_1_mancala_index)){
+        continue;
+      } 
+
+      // Anything else, yes
+      this.board[index] += 1;
+      stones -= 1;
+    }
     
   }
 }
