@@ -22,7 +22,7 @@ export function MenuLayout({ children }: { children: React.ReactNode }) {
       {/* Side nav */}
       <nav
         className={`fixed top-0 left-0 h-full w-64 z-25 transform transition-transform duration-300 ease-out
-          bg-gradient-to-b from-slate-700 via-slate-800 to-slate-900
+          bg-gradient-to-b from-slate-500 via-slate-600 to-slate-800
           shadow-xl border-r border-white/10
           ${open ? "translate-x-0" : "-translate-x-full"}`}
       >
