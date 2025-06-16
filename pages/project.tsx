@@ -60,7 +60,7 @@ export default function Projects() {
                     This project we scraped UK horse racing forums to track sentiments of jockies, trainers, and horses with BERT in order to analyze potential
                     betting opportunities simulated with Kelly Criterion and Monte Carlo. 
                   </p>
-                  <p className="mt-4 font-bold"> Tech Stack: Python, HuggingFace, Pytorch, Selenium</p>
+                  <p className="mt-4 font-bold"> Tech Stack: Python, HuggingFace, Pytorc Selenium</p>
                   <a className="mt-4 block text-slate-400 hover:underline" href="https://github.com/Jamrowski/CSCI3832-FinalProject" target="_blank">Check it out here</a>
                   </div>
                 </div>
