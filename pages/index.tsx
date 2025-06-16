@@ -17,14 +17,15 @@ export default function Home() {
           <div className="pt-20 flex flex-col items-center space-y-4">
           <Image src={birdPic} alt="Profile" className="w-24 h-24 rounded-full object-cover bg-black"/>
           <h1 className="text-4xl font-bold font-mono text-white">Mathis Fituwi</h1>
-          <h3 className="font-bold font-mono text-white">A bum. Negative to Zero sum. I'm going numb 🦬</h3>
+          <h3 className="font-bold font-mono text-white">Life's comet blazes brilliantly, it's light soon to fade, where weary skies lies</h3>
+          <h4>🦬</h4>
           </div>
         </div>
 
 
 
           {/* stuff*/}
-          <section className="mt-16 w-full flex justify-center animate-fade-in">
+          <section className="mt-12 w-full flex justify-center animate-fade-in">
              <div className={s.card}>   
               <h2 className={s.header_2}>Random talks</h2>
 

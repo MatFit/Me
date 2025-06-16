@@ -1,11 +1,14 @@
 import { useEffect, useRef } from "react";
-import Phaser from "phaser";
 
 type Props = {
   config: Phaser.Types.Core.GameConfig;
 };
 
 export default function PhaserGame({ config }: Props) {
+  const loadPhaser = async() => {
+    const Phaser = (await import('phaser')).default;
+  }
+  
   const gameRef = useRef<Phaser.Game | null>(null);
 
   useEffect(() => {
