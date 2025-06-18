@@ -1,8 +1,8 @@
-import { MenuLayout } from "./home";
-import { Footer } from "./home";
+import { MenuLayout } from "../components/MenuLayout";
+import { Footer } from "../components/MenuLayout";
 import { Grid, Typography, Paper, Box} from '@mui/material';
 import { ThemeProvider } from '@mui/material/styles';
-import { indexModel as s } from './indexModel.styles';
+import { indexModel as s } from '../styles/indexModel.styles';
 import { useState } from "react";
 import type { StaticImageData } from 'next/image';
 import Image from 'next/image';

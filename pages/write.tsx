@@ -1,5 +1,5 @@
-import { MenuLayout } from "./home";
-import { Footer } from "./home";
+import { MenuLayout } from "../components/MenuLayout";
+import { Footer } from "../components/MenuLayout";
 import { useState } from "react";
 
 export default function WriteBlog() {

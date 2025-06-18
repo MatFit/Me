@@ -1,7 +1,7 @@
-import { MenuLayout } from "./home";
-import { Footer } from "./home";
-import { useState } from "react";
-import { indexModel as s } from './indexModel.styles';
+import { MenuLayout } from "../components/MenuLayout";
+import { Footer } from "../components/MenuLayout";
+import { useState, useEffect } from "react";
+import { indexModel as s } from '../styles/indexModel.styles';
 import Image from 'next/image';
 import birdPic from '../assets/bird_with_balls.jpg';
 import posts from '../data/test_posts.json';
@@ -9,7 +9,14 @@ import posts from '../data/test_posts.json';
 
 export default function Home() {
   const [selectedPost, setSelectedPost] = useState(null);
+  const [mounted, setMounted] = useState(false);
 
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null; 
+  
   return (
     <main className="min-h-screen bg-stone-900 text-white">
       <MenuLayout>

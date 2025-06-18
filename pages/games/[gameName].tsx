@@ -2,7 +2,7 @@
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
-import { Footer, MenuLayout } from "../home"
+import { Footer, MenuLayout } from "../../components/MenuLayout"
 import { games } from "../../lib/games";
 
 // Phaser wrapper to apply config to Phaser game object
